@@ -33,6 +33,20 @@
 - Locally saved suspicion levels
 - Spoiler example toggle
 - Pre-launch, launch-week, and long-term content roadmap
+- Canonical domain: `https://graveseasons.wiki/`
+- `robots.txt` with sitemap declaration
+- Valid `sitemap.xml` for all public pages
+- SEO landing pages for release date, characters, crops, romance, suspects, and platforms
+
+## Google Search Console Upload Notes
+
+- Upload the contents of this folder to the web root of `graveseasons.wiki`.
+- Confirm these URLs return HTTP 200:
+  - `https://graveseasons.wiki/`
+  - `https://graveseasons.wiki/robots.txt`
+  - `https://graveseasons.wiki/sitemap.xml`
+- In Google Search Console, submit `https://graveseasons.wiki/sitemap.xml`.
+- If GSC asks for site ownership verification, add the exact Google verification HTML file or meta tag it provides. That token is unique to your GSC property and cannot be guessed in advance.
 
 ## Recommended Next Steps
 

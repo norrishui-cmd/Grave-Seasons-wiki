@@ -1,0 +1,9 @@
+{
+  "name": "Grave Seasons Wiki",
+  "short_name": "GS Wiki",
+  "start_url": "https://graveseasons.wiki/",
+  "display": "standalone",
+  "background_color": "#f7f3ea",
+  "theme_color": "#1f2931",
+  "description": "Unofficial Grave Seasons guide wiki for farming, characters, romance, suspects, and release date updates."
+}
