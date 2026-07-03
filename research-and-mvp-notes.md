@@ -1,43 +1,43 @@
-# Grave Seasons 攻略站调研与 MVP 设计
+# Grave Seasons Guide Site Research and MVP Notes
 
-## 公开信息摘要
+## Public Information Summary
 
-- 游戏名：Grave Seasons
-- 开发商：Perfect Garbage
-- 发行相关：Blumhouse Games 已公开展示该项目
-- 类型定位：像素风农场生活模拟、镇民社交、恋爱候选、谋杀悬疑
-- 已知核心钩子：玩家在 Ashenridge 镇经营农场，同时调查一年内可能持续发生的谋杀案；凶手可能在不同周目变化
-- 已知玩家预期：Stardew Valley 类玩家会寻找作物、礼物、NPC 行程、赚钱路线；悬疑玩家会寻找线索、嫌疑人、结局和低剧透提示
+- Game: Grave Seasons
+- Developer: Perfect Garbage
+- Publishing context: Blumhouse Games has publicly presented the project
+- Positioning: pixel-art farming life sim, town social sim, romance routes, and murder mystery
+- Known hook: the player farms in Ashenridge while investigating murders that may continue across an in-game year
+- Key design implication: the killer can vary, so the guide should support evidence tracking instead of only publishing one fixed answer
 
-## 攻略站必备元素
+## What the Guide Site Must Include
 
-1. 首页必须第一眼解释“农场 + 凶案调查”的双主线，不应只做新闻站。
-2. 搜索入口必须突出，因为玩家会高频查作物、礼物、地点、任务和嫌疑人。
-3. 新手路线必须有，尤其是首日、第一周、第一季的行动优先级。
-4. 居民资料库是核心内容，字段应包含生日、作息、礼物、恋爱事件和案件关联。
-5. 作物与经济表是长尾流量入口，字段应支持季节、成本、成熟天数、售价、加工收益。
-6. 调查系统需要无剧透模式，默认不直接展示凶手、结局和关键证据。
-7. 因为凶手可能变化，攻略站应提供“线索权重/验证方法”，而不是只写单一答案。
-8. 地图、商店、营业时间、NPC 出没位置会成为发售后最常用工具。
-9. 版本更新和补丁记录必须有，方便处理任务卡点、Bug、平衡性变化。
-10. 内容模板要提前设计，发售后才能快速填充真实数据。
+1. The first screen should communicate the hybrid promise: farming, relationships, and murder investigation.
+2. Search must be prominent because players will repeatedly look up crops, gifts, residents, locations, quests, and suspects.
+3. A beginner route is essential, especially for day one, week one, and the first season.
+4. Resident pages are core traffic drivers. They should include birthday, schedule, gifts, romance events, and case relevance.
+5. Crop and economy tables are evergreen guide content. They need season, cost, growth time, sale value, regrowth, and processing value.
+6. The mystery layer needs a spoiler-safe default mode.
+7. Since the killer can change, the site should provide evidence weighting and verification methods rather than a single hardcoded solution.
+8. Map, shop hours, NPC locations, and event trigger pages will become high-frequency tools after launch.
+9. Version and patch notes matter for quest blockers, bugs, and balance changes.
+10. Content templates should be ready before launch so verified data can be added quickly.
 
-## MVP 已实现
+## MVP Implemented
 
-- 静态攻略站首页
-- 搜索框与分类筛选
-- 新手第一周路线
-- 攻略资料库卡片
-- 字段模板弹窗
-- 无剧透调查追踪器
-- 嫌疑等级本地保存
-- 剧透内容显隐开关
-- 发售前、首发周、长期内容路线图
+- Static English guide homepage
+- Search and category filtering
+- First-week beginner route
+- Guide database cards
+- Field-template modal windows
+- Spoiler-safe suspect tracker
+- Locally saved suspicion levels
+- Spoiler example toggle
+- Pre-launch, launch-week, and long-term content roadmap
 
-## 下一步建议
+## Recommended Next Steps
 
-- 将资料库拆成 Markdown 或 JSON 数据源
-- 增加居民详情页、作物详情页、地点详情页
-- 游戏上线后补全精确数据
-- 加入用户投稿和证据可信度投票
-- 建立“无剧透提示 / 轻剧透 / 完整剧透”三级内容规范
+- Move the guide database into Markdown, JSON, or a headless CMS
+- Add resident, crop, location, and clue detail pages
+- Fill exact data after release
+- Add community submissions and evidence confidence voting
+- Create three spoiler tiers: spoiler-free hints, light spoilers, and full walkthroughs
