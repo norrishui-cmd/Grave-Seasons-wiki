@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteRule ^release-date\.html$ /release-date/ [R=301,L]
+RewriteRule ^characters\.html$ /characters/ [R=301,L]
+RewriteRule ^crops\.html$ /crops/ [R=301,L]
+RewriteRule ^romance\.html$ /romance/ [R=301,L]
+RewriteRule ^suspects\.html$ /suspects/ [R=301,L]
+RewriteRule ^platforms\.html$ /platforms/ [R=301,L]
+RewriteRule ^faq\.html$ /faq/ [R=301,L]
+RewriteRule ^about\.html$ /about/ [R=301,L]
+RewriteRule ^beginner-guide\.html$ /beginner-guide/ [R=301,L]
+RewriteRule ^gifts\.html$ /gifts/ [R=301,L]
+RewriteRule ^endings\.html$ /endings/ [R=301,L]

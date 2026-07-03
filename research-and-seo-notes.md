@@ -37,6 +37,9 @@
 - `robots.txt` with sitemap declaration
 - Valid `sitemap.xml` for all public pages
 - SEO landing pages for release date, characters, crops, romance, suspects, platforms, FAQ, and About
+- Pretty canonical URLs: `/release-date/`, `/beginner-guide/`, `/characters/`, `/crops/`, `/gifts/`, `/romance/`, `/suspects/`, `/endings/`, `/platforms/`, `/faq/`, and `/about/`
+- Legacy `.html` pages are retained only as compatibility copies and canonicalize to the pretty URL version
+- Redirect rules are included for Netlify/Cloudflare Pages style `_redirects` and Apache `.htaccess`
 
 ## Google Search Console Upload Notes
 
