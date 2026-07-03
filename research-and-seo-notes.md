@@ -39,6 +39,7 @@
 - SEO landing pages for release date, characters, crops, romance, suspects, platforms, FAQ, and About
 - Pretty canonical URLs: `/release-date/`, `/beginner-guide/`, `/characters/`, `/crops/`, `/gifts/`, `/romance/`, `/suspects/`, `/endings/`, `/platforms/`, `/faq/`, and `/about/`
 - Added missing content hubs for this genre: `/guide-index/`, `/calendar/`, `/map/`, `/quests/`, `/resources/`, and `/achievements/`
+- Homepage hero includes a release-window countdown based on the official public 2026 window. Exact release date remains TBA and should be updated when an official day is announced.
 - Legacy `.html` pages are retained only as compatibility copies and canonicalize to the pretty URL version
 - Redirect rules are included for Netlify/Cloudflare Pages style `_redirects` and Apache `.htaccess`
 

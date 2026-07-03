@@ -232,6 +232,75 @@ h1 {
   line-height: 1.7;
 }
 
+.release-countdown {
+  width: min(760px, 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin: 0 auto 16px;
+  padding: 16px;
+  text-align: left;
+  color: var(--ink);
+  background: rgba(255, 250, 240, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.22);
+}
+
+.release-countdown h2 {
+  margin: 0 0 6px;
+  font-size: clamp(1.18rem, 2.4vw, 1.75rem);
+  line-height: 1.15;
+}
+
+.release-countdown p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.countdown-kicker {
+  margin-bottom: 6px;
+  color: var(--rust) !important;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.countdown-grid span {
+  min-height: 74px;
+  display: grid;
+  place-items: center;
+  padding: 10px 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.countdown-grid strong {
+  display: block;
+  color: var(--berry);
+  font-size: clamp(1.35rem, 3vw, 2.1rem);
+  line-height: 1;
+}
+
+.countdown-grid em {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .search-panel {
   width: min(680px, 100%);
   margin: 0 auto;
@@ -727,6 +796,10 @@ footer p {
     margin-top: 16px;
   }
 
+  .release-countdown {
+    grid-template-columns: 1fr;
+  }
+
   .suspect-board,
   .timeline {
     margin-top: 22px;
@@ -747,6 +820,7 @@ footer p {
   }
 
   .search-panel div,
+  .countdown-grid,
   .quick-stats,
   .guide-grid,
   .need-list,

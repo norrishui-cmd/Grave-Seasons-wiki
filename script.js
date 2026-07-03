@@ -8,6 +8,7 @@ const dialogTitle = document.querySelector("#dialog-title");
 const spoilerToggle = document.querySelector("#spoiler-toggle");
 const spoilerBox = document.querySelector(".spoiler-box");
 const suspectBoard = document.querySelector("#suspect-board");
+const countdown = document.querySelector("[data-countdown-target]");
 
 const fieldTemplates = {
   crops: {
@@ -90,6 +91,28 @@ const fieldTemplates = {
     ],
   },
 };
+
+function updateCountdown() {
+  if (!countdown) return;
+
+  const target = new Date(countdown.dataset.countdownTarget).getTime();
+  const remaining = Math.max(0, target - Date.now());
+  const totalSeconds = Math.floor(remaining / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  countdown.querySelector("[data-countdown-days]").textContent = days;
+  countdown.querySelector("[data-countdown-hours]").textContent = String(hours).padStart(2, "0");
+  countdown.querySelector("[data-countdown-minutes]").textContent = String(minutes).padStart(2, "0");
+  countdown.querySelector("[data-countdown-seconds]").textContent = String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+if (countdown) {
+  setInterval(updateCountdown, 1000);
+}
 
 function applyFilter(type) {
   const query = searchInput.value.trim().toLowerCase();
