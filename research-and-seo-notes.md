@@ -1,4 +1,4 @@
-﻿# GraveSeasons Wiki & Guide Research and SEO Notes
+# GraveSeasons Wiki & Guide Research and SEO Notes
 
 ## Public Information Summary
 
@@ -65,3 +65,5 @@
 
 - Favicon files: /favicon.ico and /favicon.svg for browser tabs and Google search result branding.
 
+
+- New SEO round added second-layer official-feature hubs: `/ashenridge/`, `/day-night-cycle/`, `/break-ins/`, `/victim-protection/`, `/items-database/`, `/recipes/`, and `/foraging/`.
