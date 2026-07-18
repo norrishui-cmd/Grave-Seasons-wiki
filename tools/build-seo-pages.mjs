@@ -564,6 +564,15 @@ function collectIndexFiles(dir) {
   }
 }
 collectIndexFiles(root);
+const adsenseHead = `    <meta name="google-adsense-account" content="ca-pub-9505220977121599" />\n    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9505220977121599" crossorigin="anonymous"></script>`;
+for (const file of canonicalPages) {
+  let html = fs.readFileSync(file, "utf8");
+  html = html.replace(/\s*<meta name="google-adsense-account"[^>]*>/g, "");
+  html = html.replace(/\s*<script async src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-[^"]+" crossorigin="anonymous"><\/script>/g, "");
+  html = html.replace(/<\/head>/i, `${adsenseHead}\n  </head>`);
+  fs.writeFileSync(file, html);
+}
+fs.writeFileSync(path.join(root, "ads.txt"), "google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0\n");
 const indexablePages = canonicalPages.filter((file) => !/name="robots" content="noindex,follow/.test(fs.readFileSync(file, "utf8")));
 const sitemapEntries = indexablePages.map((file) => {
   const rel = path.relative(root, path.dirname(file)).replaceAll(path.sep, "/");

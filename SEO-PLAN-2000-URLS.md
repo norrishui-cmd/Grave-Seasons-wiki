@@ -106,3 +106,11 @@ Current official launch window: Fall 2026. The former August 14, 2026 date is ou
 - Added visible language switching between English, Japanese and Latin American Spanish while keeping internal navigation inside each language directory.
 - Adapted the automated audit for Japanese character-based content checks and localized metadata ranges; all 147 pages pass with zero errors and zero warnings.
 - Kept this as a 15-page-per-language quality MVP rather than translating all 117 English pages. The next localized batch should expand only from pages with concrete, source-backed answers.
+
+## AdSense sitewide configuration
+
+- Added the AdSense loader for publisher `ca-pub-9505220977121599` exactly once inside the `<head>` of all 147 English, Japanese and Latin American Spanish pages.
+- Added the `google-adsense-account` ownership meta tag to every page as a second verification method.
+- Published the required Google seller record at the root `/ads.txt` path.
+- Updated both page generators so future English and localized rebuilds preserve the AdSense configuration.
+- Extended the audit to reject missing or duplicated AdSense scripts, missing account meta tags and an incorrect `ads.txt` publisher record.

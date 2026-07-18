@@ -46,6 +46,10 @@ for (const file of htmlFiles) {
   if (h1s.length !== 1) errors.push(`${rel}: expected one H1, found ${h1s.length}`);
   if (!html.includes('name="robots"')) errors.push(`${rel}: missing robots meta`);
   if (!html.includes("application/ld+json")) errors.push(`${rel}: missing JSON-LD`);
+  const adsenseMetaCount = (html.match(/name="google-adsense-account" content="ca-pub-9505220977121599"/g) || []).length;
+  const adsenseScriptCount = (html.match(/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-9505220977121599/g) || []).length;
+  if (adsenseMetaCount !== 1) errors.push(`${rel}: expected one AdSense account meta, found ${adsenseMetaCount}`);
+  if (adsenseScriptCount !== 1) errors.push(`${rel}: expected one AdSense script, found ${adsenseScriptCount}`);
   const visibleChars = text.replace(/\s+/g, "").length;
   if (!noindex && lang === "ja" && visibleChars < 420) warnings.push(`${rel}: low Japanese text count (${visibleChars} chars)`);
   if (!noindex && lang !== "ja" && words < (lang === "en" ? 180 : 120)) warnings.push(`${rel}: low text count (${words})`);
@@ -87,6 +91,8 @@ for (const file of htmlFiles) {
 }
 
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
+const adsTxt = fs.readFileSync(path.join(root, "ads.txt"), "utf8").trim();
+if (adsTxt !== "google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0") errors.push("ads.txt: incorrect publisher record");
 const sitemapUrls = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]));
 for (const canonical of indexableCanonicals) if (!sitemapUrls.has(canonical)) errors.push(`sitemap: missing ${canonical}`);
 for (const url of sitemapUrls) if (!indexableCanonicals.has(url)) errors.push(`sitemap: non-indexable or unknown ${url}`);

@@ -72,6 +72,8 @@ function render(lang, page) {
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta property="og:type" content="article" /><meta property="og:site_name" content="GraveSeasons Wiki & Guide" /><meta property="og:title" content="${esc(h1)}" /><meta property="og:description" content="${esc(description)}" /><meta property="og:url" content="${url}" /><meta property="og:locale" content="${lang.locale}" />
   <script type="application/ld+json">${json(schema)}</script><link rel="stylesheet" href="/styles.css" />
+  <meta name="google-adsense-account" content="ca-pub-9505220977121599" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9505220977121599" crossorigin="anonymous"></script>
 </head>
 <body><header class="site-header"><a class="brand" href="/${lang.code}/"><span class="brand-mark">GS</span><span>GraveSeasons Wiki</span></a><nav aria-label="Primary navigation">${links.map(([s,n])=>`<a href="/${lang.code}/${s ? `${s}/` : ""}">${n}</a>`).join("")}</nav></header>
 <main class="content-page"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/${lang.code}/">${lang.home}</a><span>›</span><span>${esc(h1)}</span></nav><p class="section-label">${lang.name}</p><h1>${esc(h1)}</h1><p class="lead direct-answer">${esc(answer)}</p>
@@ -110,4 +112,5 @@ const urls=[];
 function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){if(["tools",".git"].includes(e.name))continue;const full=path.join(dir,e.name);if(e.isDirectory())walk(full);else if(e.name==="index.html"){const html=fs.readFileSync(full,"utf8");if(!/name="robots" content="noindex,follow/.test(html)){const canonical=html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];if(canonical)urls.push(canonical);}}}}
 walk(root);
 fs.writeFileSync(path.join(root,"sitemap.xml"),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...new Set(urls)].sort().map(u=>`  <url><loc>${u}</loc><lastmod>${updated}</lastmod></url>`).join("\n")}\n</urlset>\n`);
+fs.writeFileSync(path.join(root,"ads.txt"),"google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0\n");
 console.log(`Generated ${ja.pages.length} Japanese and ${es.pages.length} Spanish pages. Sitemap: ${new Set(urls).size} URLs.`);
