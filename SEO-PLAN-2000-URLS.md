@@ -97,3 +97,12 @@ Current official launch window: Fall 2026. The former August 14, 2026 date is ou
 - Updated the character and FAQ hubs with crawlable contextual links to the new pages instead of relying only on sitemap discovery.
 - Kept gift preferences, exact schedules, recipes, upgrade costs, mine tables and culprit identities outside the indexable expansion because current sources do not provide complete answers.
 - Preserved the answer-first quality rule: every new question URL states a concrete conclusion above the fold, distinguishes official facts from unknown launch details and links to the relevant topic hub.
+
+## Japanese and Latin American Spanish MVP
+
+- Added 15 Japanese URLs under `/ja/` and 15 Latin American Spanish URLs under `/es-419/`, expanding the indexable sitemap from 117 to 147 URLs.
+- Localized the highest-value pre-launch hubs and answers: home, release date, gameplay, characters, locations, romance, investigation, supported languages, platforms, questions, killer romance, romance-option count, changing killers, resident count and item count.
+- Added self-referencing canonicals plus reciprocal `hreflang` annotations for `en`, `ja`, `es-419` and `x-default` on every localized set.
+- Added visible language switching between English, Japanese and Latin American Spanish while keeping internal navigation inside each language directory.
+- Adapted the automated audit for Japanese character-based content checks and localized metadata ranges; all 147 pages pass with zero errors and zero warnings.
+- Kept this as a 15-page-per-language quality MVP rather than translating all 117 English pages. The next localized batch should expand only from pages with concrete, source-backed answers.

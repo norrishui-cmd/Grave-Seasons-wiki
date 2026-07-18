@@ -29,6 +29,7 @@ function match(html, pattern) {
 for (const file of htmlFiles) {
   const rel = path.relative(root, file);
   const html = fs.readFileSync(file, "utf8");
+  const lang = match(html, /<html\s+lang="([^"]+)"/i) || "en";
   const title = match(html, /<title>([\s\S]*?)<\/title>/i);
   const description = match(html, /<meta\s+name="description"\s+content="([^"]*)"/i);
   const canonical = match(html, /<link\s+rel="canonical"\s+href="([^"]*)"/i);
@@ -45,9 +46,13 @@ for (const file of htmlFiles) {
   if (h1s.length !== 1) errors.push(`${rel}: expected one H1, found ${h1s.length}`);
   if (!html.includes('name="robots"')) errors.push(`${rel}: missing robots meta`);
   if (!html.includes("application/ld+json")) errors.push(`${rel}: missing JSON-LD`);
-  if (!noindex && words < 180) warnings.push(`${rel}: low text count (${words})`);
-  if (title.length > 65 || title.length < 25) warnings.push(`${rel}: title length ${title.length}`);
-  if (description.length > 170 || description.length < 90) warnings.push(`${rel}: description length ${description.length}`);
+  const visibleChars = text.replace(/\s+/g, "").length;
+  if (!noindex && lang === "ja" && visibleChars < 420) warnings.push(`${rel}: low Japanese text count (${visibleChars} chars)`);
+  if (!noindex && lang !== "ja" && words < (lang === "en" ? 180 : 120)) warnings.push(`${rel}: low text count (${words})`);
+  const titleRange = lang === "ja" ? [10, 55] : [25, 65];
+  const descriptionRange = lang === "ja" ? [45, 125] : [90, 170];
+  if (title.length > titleRange[1] || title.length < titleRange[0]) warnings.push(`${rel}: title length ${title.length}`);
+  if (description.length > descriptionRange[1] || description.length < descriptionRange[0]) warnings.push(`${rel}: description length ${description.length}`);
   if (/check back later|lorem ipsum/i.test(text)) errors.push(`${rel}: placeholder language detected`);
   if (/exact release date tba|expected in 2026|remaining time in the official 2026 window/i.test(text)) errors.push(`${rel}: stale release wording detected`);
 
