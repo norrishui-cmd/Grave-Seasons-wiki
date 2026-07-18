@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const site = "https://graveseasons.wiki";
-const updated = "2026-07-17";
+const updated = "2026-07-18";
 
 const pages = [
   {
@@ -197,7 +197,7 @@ const pages = [
     ["locations/mines", "The Mines", "The Mines are one of the seven confirmed major areas. Mining and ingredient discovery are official mechanics, while floor count, hazards, ore tables, tools, combat, and reset rules have not been published.", "mining, ingredients, crafting materials, upgrades, and mystery progress"],
   ].map(([slug, place, answer, uses]) => ({
     slug,
-    title: `Grave Seasons ${place} | Ashenridge Location Guide`,
+    title: `Grave Seasons ${place} | Location Guide`,
     description: `Explore ${place} in Grave Seasons. Review confirmed activities, current unknowns, and the verified location details to track at launch.`,
     label: "Ashenridge location",
     h1: `Grave Seasons: ${place}`,
@@ -217,7 +217,7 @@ const pages = [
     ["gameplay/replayability", "Replayability", "Each new year can select a supernatural killer from a pool of candidates, with authored reasoning, kill styles, and targets. Previous work is also tracked across replays."],
   ].map(([slug, mechanic, answer]) => ({
     slug,
-    title: `Grave Seasons ${mechanic} Guide | Confirmed Gameplay Explained`,
+    title: `${mechanic} in Grave Seasons | Gameplay Guide`,
     description: `How ${mechanic.toLowerCase()} works in Grave Seasons: confirmed mechanics, story connections, current unknowns, and launch-day testing priorities.`,
     label: "Gameplay system",
     h1: `How ${mechanic} Works in Grave Seasons`,
@@ -248,6 +248,115 @@ pages.push({
   related: [["/map/", "Map guide"], ["/characters/", "Residents"], ["/quests/", "Quests"]],
 });
 
+const characterProfiles = [
+  ["althea", "Althea", "Doctor", "she/her", "the Ashenridge clinic", "Althea runs Ashenridge's clinic and is assisted by Maggie. Her medical role makes the clinic a natural location for residents affected by the town's escalating danger.", [["/locations/clinic/", "Clinic"], ["/characters/maggie/", "Maggie"]]],
+  ["aria", "Aria", "Singer and guitarist", "they/them", "Lukas's bar", "Aria is a long-time Ashenridge resident and musician who performs at the local bar. Public profile material describes them as uncertain about what direction to take in life.", [["/locations/bar/", "Bar"], ["/characters/lukas/", "Lukas"]]],
+  ["elias", "Elias", "Baker", "he/him", "the bakery", "Elias is Ashenridge's baker. He moved to town after leaving a high-pressure restaurant career, linking his resident profile directly to the bakery location and the town's food economy.", [["/locations/bakery/", "Bakery"], ["/resources/", "Resources"]]],
+  ["fitch", "Fitch", "Mayor", "he/him", "Town Hall", "Fitch is Ashenridge's mayor. Public profile material places him around Town Hall and the docks and identifies Naya as his intern and possible successor.", [["/locations/town-hall/", "Town Hall"], ["/characters/naya/", "Naya"]]],
+  ["gregory", "Gregory", "Diner owner", "he/him", "the diner", "Gregory owns Ashenridge's diner and employs Kaarina. His business has a standing rivalry with Lukas's bar, connecting three resident profiles and two commercial locations.", [["/locations/diner/", "Diner"], ["/characters/kaarina/", "Kaarina"], ["/characters/lukas/", "Lukas"]]],
+  ["hari", "Hari", "Farmhand", "he/him", "the farm community", "Hari is a farmhand known for helping around Ashenridge. Public profile material describes him as friendly but says he does not get along with S-Mart manager Yuto.", [["/locations/farm/", "Farm"], ["/characters/yuto/", "Yuto"]]],
+  ["jessie", "Jessie", "Animal handler", "they/them", "the ranch", "Jessie is Ashenridge's animal handler and is associated with the ranch. They grew up in town and are also known to spend time at Gregory's diner.", [["/locations/ranch/", "Ranch"], ["/locations/diner/", "Diner"]]],
+  ["kaarina", "Kaarina", "Waitress", "she/her", "Gregory's diner", "Kaarina works as a waitress at the diner while saving for education. Public profile material also connects her to a former local rock group and an interest in movies and rare vinyl.", [["/locations/diner/", "Diner"], ["/characters/gregory/", "Gregory"]]],
+  ["leilani", "Leilani", "Florist", "she/her", "Sunbeam Florals", "Leilani runs Sunbeam Florals and is a lifelong Ashenridge resident. Her public profile pairs a friendly florist persona with an unresolved grudge and an interest in thrillers.", [["/locations/sunbeam-florals/", "Sunbeam Florals"], ["/characters/tomas/", "Tomás"]]],
+  ["lukas", "Lukas", "Bar owner", "not publicly confirmed on this page", "the bar", "Lukas owns Ashenridge's bar, where Aria performs. Public resident material connects him to a business rivalry with diner owner Gregory and a strained relationship with Maggie.", [["/locations/bar/", "Bar"], ["/characters/aria/", "Aria"], ["/characters/gregory/", "Gregory"]]],
+  ["maggie", "Maggie", "Clinic assistant", "not publicly confirmed on this page", "the clinic", "Maggie assists Althea at the Ashenridge clinic. Public roster material also links her history to Althea and describes tension between Maggie and bar owner Lukas.", [["/locations/clinic/", "Clinic"], ["/characters/althea/", "Althea"], ["/characters/lukas/", "Lukas"]]],
+  ["naya", "Naya", "Mayor's intern", "not publicly confirmed on this page", "Town Hall", "Naya works with Mayor Fitch at Town Hall and hopes to succeed him. Her role places her close to Ashenridge's local administration and civic storylines.", [["/locations/town-hall/", "Town Hall"], ["/characters/fitch/", "Fitch"]]],
+  ["noa", "Noa", "Fisherman and shop owner", "he/him", "The Big Fish at the docks", "Noa lives by the docks and runs The Big Fish, selling fish and tackle. Public character material describes him as hardworking, distant at first, and interested in friendship beneath that exterior.", [["/locations/the-big-fish/", "The Big Fish"], ["/locations/coast-and-docks/", "Coast & Docks"]]],
+  ["pilar", "Pilar", "Tailor", "she/her", "the salon and tailor shop", "Pilar is Ashenridge's tailor and shares a business building with Yvonne's salon. Public material characterizes her as creative, outgoing, and drawn to the forest while guarded about her past.", [["/locations/salon-and-tailor-shop/", "Salon & Tailor Shop"], ["/locations/forest/", "Forest"]]],
+  ["rose", "Rose", "Librarian", "not publicly confirmed on this page", "the library", "Rose is the resident associated with Ashenridge's library. Community-compiled developer reveals describe her as a ghost with a very long connection to the town, making her relevant to Ashenridge's occult history.", [["/locations/library/", "Library"], ["/crafting-and-occult-items/", "Occult guide"]]],
+  ["sameera", "Sameera", "Butcher", "she/her", "the butcher's shop", "Sameera runs Ashenridge's butcher shop. Public roster information describes her as successful and busy and identifies Petros as her spouse.", [["/locations/butchers-shop/", "Butcher's Shop"], ["/characters/", "Character roster"]]],
+  ["tomas", "Tomás", "Priest", "he/him", "the church", "Tomás is Ashenridge's priest and is also a frequent evening patron of the bar. Public profile material connects him to Leilani through an unexplained dislike.", [["/locations/church/", "Church"], ["/locations/bar/", "Bar"], ["/characters/leilani/", "Leilani"]]],
+  ["yuto", "Yuto", "S-Mart manager", "he/him", "S-Mart", "Yuto manages Ashenridge's S-Mart. Public material portrays him as a dry, outspoken retail worker who remains secretive about his past and does not get along with Hari.", [["/locations/s-mart/", "S-Mart"], ["/characters/hari/", "Hari"]]],
+];
+
+for (const [slug, name, role, pronouns, location, summary, related] of characterProfiles) {
+  pages.push({
+    slug: `characters/${slug}`,
+    title: `${name} in Grave Seasons | Role, Location, and Relationships`,
+    description: `${name} is ${role === "Doctor" ? "the" : "a"} ${role.toLowerCase()} in Grave Seasons. See their confirmed Ashenridge role, associated location, relationships, and pre-release status.`,
+    label: "Character profile",
+    h1: `${name} in Grave Seasons`,
+    answer: `${name} is a confirmed Ashenridge resident who works as ${role.toLowerCase()} and is associated with ${location}. ${summary}`,
+    facts: [`Name: ${name}`, `Role: ${role}`, `Pronouns: ${pronouns}`, `Associated location: ${location}`, "Gift preferences and exact schedule: not yet verified"],
+    sections: [
+      ["Confirmed profile", summary],
+      ["Why this character matters", `${name}'s work and relationships connect the resident to Ashenridge's daily-life network. Because Grave Seasons can select different authored killer campaigns and can change stories when residents survive or die, this page will keep normal resident facts separate from campaign-specific spoilers.`],
+      ["What is intentionally excluded", `No gift list, birthday, romance flag, daily timetable, killer status, victim status, or quest trigger is claimed without direct evidence. Those details require an official character reveal or repeatable retail-build verification.`],
+    ],
+    related: [["/characters/", "All characters"], ...related],
+    sources: [["https://graveseasons.fandom.com/wiki/Grave_Seasons_Wiki", "community roster based on developer reveals"], ["https://store.steampowered.com/app/3255110/Grave_Seasons/", "official Steam overview"]],
+  });
+}
+
+const townLocations = [
+  ["bakery", "Bakery", "Business", "Elias", "Ashenridge's bakery is the workplace associated with Elias. Exact stock, opening hours, recipes, prices, and quest triggers are not yet verified.", [["/characters/elias/", "Elias"]]],
+  ["bar", "Bar", "Business and social venue", "Lukas and Aria", "The bar is owned by Lukas and hosts Aria's performances. Tomás is also publicly described as a frequent evening patron, while Gregory's diner is a business rival.", [["/characters/lukas/", "Lukas"], ["/characters/aria/", "Aria"], ["/characters/tomas/", "Tomás"]]],
+  ["butchers-shop", "Butcher's Shop", "Business", "Sameera", "The butcher's shop is Sameera's Ashenridge business. Its inventory, prices, hours, and recipe links have not been published.", [["/characters/sameera/", "Sameera"]]],
+  ["clinic", "Clinic", "Medical building", "Althea and Maggie", "Ashenridge's clinic is run by Althea with assistance from Maggie. Its role in injuries, murders, quests, or recovery systems remains campaign-specific until verified.", [["/characters/althea/", "Althea"], ["/characters/maggie/", "Maggie"]]],
+  ["diner", "Diner", "Business and social venue", "Gregory and Kaarina", "Gregory owns the diner and Kaarina works there as a waitress. Jessie is also linked to the diner as a regular visitor, and the business rivals Lukas's bar.", [["/characters/gregory/", "Gregory"], ["/characters/kaarina/", "Kaarina"], ["/characters/jessie/", "Jessie"]]],
+  ["library", "Library", "Public building", "Rose", "The library is associated with resident librarian Rose. Public profile material also connects Kaarina's interest in movies and rare media with library visits.", [["/characters/rose/", "Rose"], ["/characters/kaarina/", "Kaarina"]]],
+  ["s-mart", "S-Mart", "Retail business", "Yuto", "S-Mart is managed by Yuto. Exact inventory, seed availability, pricing, hours, and upgrade requirements are not yet verified.", [["/characters/yuto/", "Yuto"], ["/characters/hari/", "Hari"]]],
+  ["salon-and-tailor-shop", "Salon and Tailor Shop", "Shared business", "Pilar and Yvonne", "The shared salon and tailor building houses Pilar's tailoring business and Yvonne's salon. Clothing services and customization links require retail-build confirmation.", [["/characters/pilar/", "Pilar"], ["/gameplay/character-customization/", "Character customization"]]],
+  ["school", "School", "Public building", "Ishan", "Ashenridge's school is associated with Ishan in the public resident-and-location roster. Its schedule, quests, and accessible interiors are not yet verified.", [["/characters/", "Character roster"]]],
+  ["church", "Church", "Public building", "Tomás", "The church is Tomás's workplace and sits outside the central town list in public location material. Its hours, occult relevance, and campaign events are not yet verified.", [["/characters/tomas/", "Tomás"], ["/crafting-and-occult-items/", "Occult items"]]],
+  ["ranch", "Ranch", "Residence and business", "Jessie", "The ranch is associated with animal handler Jessie. Animals, products, purchase rules, building upgrades, and opening hours are not yet verified.", [["/characters/jessie/", "Jessie"], ["/farm-upgrades/", "Farm upgrades"]]],
+  ["the-big-fish", "The Big Fish", "Fishing shop", "Noa", "The Big Fish is Noa's docks-side shop for fish and tackle. Exact fish stock, tackle, prices, hours, and seasonal availability remain unverified.", [["/characters/noa/", "Noa"], ["/locations/coast-and-docks/", "Coast & Docks"], ["/fishing-and-mining/", "Fishing guide"]]],
+  ["sunbeam-florals", "Sunbeam Florals", "Flower shop", "Leilani", "Sunbeam Florals is Leilani's flower shop in Ashenridge. Its inventory, gift uses, seasonal flowers, and opening hours have not yet been verified.", [["/characters/leilani/", "Leilani"], ["/foraging/", "Foraging"]]],
+  ["town-hall", "Town Hall", "Public building", "Fitch and Naya", "Town Hall is the civic workplace associated with Mayor Fitch and intern Naya. Its services, office hours, quests, and campaign events remain unverified.", [["/characters/fitch/", "Fitch"], ["/characters/naya/", "Naya"]]],
+];
+
+for (const [slug, name, type, people, summary, related] of townLocations) {
+  pages.push({
+    slug: `locations/${slug}`,
+    title: `Grave Seasons ${name} | Location Guide`,
+    description: `Find the confirmed role of ${name} in Grave Seasons, including its location type, associated residents, current known uses, and unverified launch details.`,
+    label: "Ashenridge interior",
+    h1: `${name} in Grave Seasons`,
+    answer: `${name} is a confirmed ${type.toLowerCase()} in Ashenridge associated with ${people}. ${summary}`,
+    facts: [`Location: ${name}`, `Type: ${type}`, `Associated residents: ${people}`, "Exact hours and map coordinates: not yet verified"],
+    sections: [
+      ["Confirmed location role", summary],
+      ["What players will use this page for", `After launch, this page will document the entrance route, opening hours, interior layout, residents by time and season, items or services, quest triggers, clues, locked access, and state changes caused by the active killer or resident survival.`],
+      ["Pre-release accuracy boundary", `A named location and its associated resident are enough for a useful entity page, but not enough to invent an inventory, schedule, price, clue, or quest. Unverified gameplay fields stay visibly separated from confirmed facts.`],
+    ],
+    related: [["/locations/", "All locations"], ...related],
+    sources: [["https://graveseasons.fandom.com/wiki/Ashenridge", "community location roster"], ["https://store.steampowered.com/app/3255110/Grave_Seasons/", "official Steam overview"]],
+  });
+}
+
+const investigationPages = [
+  ["gameplay/journal-and-clues", "Grave Seasons Journal and Clue Tracking", "Grave Seasons has a journal system that records clues found during investigations. Those clues can become trackable investigation quests, so players do not need to memorize every discovery.", ["Journal records discovered clues", "Clues can generate investigation quests", "Players still need town knowledge to interpret leads"], "The journal reduces memory burden without solving the case automatically. A clue can point toward a person or place—such as a business connection—while the player still needs to know where that resident normally spends time and whether the destination is open.", [["/investigation/", "Investigation hub"], ["/quests/", "Quest hub"]]],
+  ["gameplay/killer-campaigns", "Are Grave Seasons Killers Random?", "Grave Seasons does not procedurally invent a murderer. A playthrough selects from a pool of authored supernatural-killer campaigns, each with its own reasoning, kill style, and targets.", ["Campaign selected each playthrough", "Each campaign is authored", "Reasoning, kill style, and targets differ"], "The selected culprit can vary, but the narrative is written rather than assembled from random clue fragments. Guides must therefore identify the relevant campaign and avoid presenting one universal suspect answer.", [["/killers-and-victims/", "Killers and victims"], ["/gameplay/replayability/", "Replayability"]]],
+  ["gameplay/can-characters-die", "Can Characters Die in Grave Seasons?", "Yes. Ashenridge residents can die, and official descriptions say their death or survival unlocks different storylines. The player can try to prevent murders but is also allowed to let chaos unfold.", ["Resident deaths affect the story", "Survival unlocks alternate storylines", "Choices are checked and autosaved"], "Death is not presented as a simple fail state. A victim's outcome changes dialogue, relationships, evidence, and the branches available during that year, which is why character pages need campaign-specific spoiler sections.", [["/victim-protection/", "Victim protection"], ["/gameplay/autosave-and-choices/", "Choices and autosave"]]],
+  ["gameplay/can-you-save-everyone", "Can You Save Everyone in Grave Seasons?", "Grave Seasons lets players investigate danger and craft items that may protect potential victims, but no official source currently guarantees that every resident can be saved in one playthrough.", ["Victim protection is a core mechanic", "Occult items can ward off threats", "A universal perfect-save route is not confirmed"], "The useful pre-release answer is about agency, not a promised perfect ending: players can identify the next target and intervene, while the selected killer campaign, timing, evidence, and choices determine what is possible.", [["/victim-protection/", "Victim protection"], ["/crafting-and-occult-items/", "Occult crafting"]]],
+  ["gameplay/one-year-calendar", "How the One-Year Calendar Works in Grave Seasons", "A Grave Seasons playthrough covers one in-game year with changing seasons. The finite year creates time pressure for farming, relationships, investigation, and protecting residents.", ["Campaign length: one in-game year", "Seasons change the world", "Decisions and outcomes carry through the year"], "Unlike an endless farming sandbox, the year is a narrative frame with a defined conclusion. Multiple playthroughs are expected because a different killer campaign and different survival outcomes can reveal other stories.", [["/calendar/", "Calendar hub"], ["/how-long/", "How long is the game?"]]],
+];
+
+for (const [slug, h1, answer, facts, detail, related] of investigationPages) {
+  pages.push({
+    slug,
+    title: `${h1} | Gameplay Guide`,
+    description: `${h1} explained with confirmed rules for investigation, story choices, resident outcomes, and replay planning.`,
+    label: "Investigation mechanic",
+    h1,
+    answer,
+    facts,
+    sections: [
+      ["How the mechanic works", detail],
+      ["What this changes for guide design", "Walkthroughs must separate universal systems from campaign-specific answers, record the relevant season and resident state, and keep culprit or victim information behind explicit spoiler controls."],
+      ["Verification rule", "The page answers the confirmed mechanic now. Exact quest steps, item requirements, dates, failure windows, and outcomes will only be added from official material or repeatable retail-build evidence."],
+    ],
+    related: [["/gameplay/", "Gameplay hub"], ...related],
+    sources: [["https://butwhytho.net/2026/06/grave-seasons-horror-cozy-game-interview/", "developer interview"], ["https://store.steampowered.com/app/3255110/Grave_Seasons/", "official Steam overview"]],
+  });
+}
+
+const locationHubPage = pages.find((page) => page.slug === "locations");
+if (locationHubPage) {
+  const interiorCards = townLocations.map(([slug, name, type, people]) => `<article><h3><a href="/locations/${slug}/">${name}</a></h3><p>${type}; associated with ${people}.</p></article>`).join("");
+  locationHubPage.sections.splice(1, 0, ["Revealed interiors and businesses", `<div class="template-grid">${interiorCards}</div>`]);
+}
+
 function escapeJson(value) {
   return JSON.stringify(value).replaceAll("<", "\\u003c");
 }
@@ -257,6 +366,7 @@ function render(page) {
   const related = page.related.map(([href, text]) => `<a href="${href}">${text}</a>`).join("\n          ");
   const facts = page.facts.map((fact) => `<li>${fact}</li>`).join("\n            ");
   const sections = page.sections.map(([heading, body]) => `<section class="page-panel"><h2>${heading}</h2>${body.startsWith("<") ? body : `<p>${body}</p>`}</section>`).join("\n      ");
+  const sourceItems = (page.sources || [["https://www.blumhouse.com/games/grave-seasons", "official publisher page"], ["https://store.steampowered.com/app/3255110/Grave_Seasons/", "official Steam listing"]]).map(([href, label]) => `<a href="${href}" rel="noopener noreferrer">${label}</a>`).join(" and ");
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -301,7 +411,7 @@ function render(page) {
       <p class="lead direct-answer">${page.answer}</p>
       <aside class="fact-box" aria-label="Quick facts"><h2>Quick facts</h2><ul class="check-list">${facts}</ul></aside>
       ${sections}
-      <section class="page-panel source-note"><h2>Sources and update policy</h2><p>Current facts are checked against the <a href="https://www.blumhouse.com/games/grave-seasons" rel="noopener noreferrer">official publisher page</a>, the <a href="https://store.steampowered.com/app/3255110/Grave_Seasons/" rel="noopener noreferrer">official Steam listing</a>, and official console storefronts where relevant. Last reviewed: July 17, 2026. Unannounced details are labeled rather than inferred.</p></section>
+      <section class="page-panel source-note"><h2>Sources and update policy</h2><p>Current facts are checked against ${sourceItems} and official storefronts where relevant. Last reviewed: July 18, 2026. Community-compiled facts are limited to developer-revealed names, roles, relationships, and locations; unannounced gameplay details are labeled rather than inferred.</p></section>
       <nav class="related-links" aria-label="Related guides">${related}</nav>
     </main>
     <footer><p>Unofficial GraveSeasons Wiki & Guide. Not affiliated with Perfect Garbage or Blumhouse Games.</p></footer>
@@ -330,6 +440,41 @@ const gameplayHub = render({
 });
 fs.mkdirSync(path.join(root, "gameplay"), { recursive: true });
 fs.writeFileSync(path.join(root, "gameplay/index.html"), gameplayHub);
+
+const metadataTitleOverrides = new Map([
+  ["index.html", "Grave Seasons Wiki | Fall 2026 Release & Guides"],
+  ["achievements/index.html", "Grave Seasons Achievements | Confirmed Support"],
+  ["ashenridge/index.html", "Ashenridge Guide | Grave Seasons Town & Residents"],
+  ["break-ins/index.html", "Grave Seasons Break-Ins | Clues and Detection"],
+  ["calendar/index.html", "Grave Seasons Calendar | One-Year Season Guide"],
+  ["characters/index.html", "Grave Seasons Characters | Ashenridge Resident List"],
+  ["crafting-and-occult-items/index.html", "Grave Seasons Crafting | Recipes and Occult Items"],
+  ["day-night-cycle/index.html", "Grave Seasons Day-Night Cycle | Time Guide"],
+  ["endings/index.html", "Grave Seasons Endings | Spoiler-Safe Guide"],
+  ["farm-upgrades/index.html", "Grave Seasons Farm Upgrades | Tools and Buildings"],
+  ["fishing-and-mining/index.html", "Grave Seasons Fishing and Mining Guide"],
+  ["foraging/index.html", "Grave Seasons Foraging | Seasons and Locations"],
+  ["gameplay/index.html", "Grave Seasons Gameplay | Farming, Horror, and Choices"],
+  ["gifts/index.html", "Grave Seasons Gifts | What Is Confirmed"],
+  ["investigation/index.html", "Grave Seasons Investigation | Clues and Journal"],
+  ["items-database/index.html", "Grave Seasons Items | 600+ Item Database"],
+  ["killers-and-victims/index.html", "Grave Seasons Killers and Victims Guide"],
+  ["languages/index.html", "Grave Seasons Languages | Voice and Subtitles"],
+  ["map/index.html", "Grave Seasons Map | Ashenridge Locations"],
+  ["quests/index.html", "Grave Seasons Quests | Journal and Clue Tasks"],
+  ["recipes/index.html", "Grave Seasons Recipes | Kitchen and Shed Crafting"],
+  ["resources/index.html", "Grave Seasons Resources | Items and Materials"],
+  ["romance/index.html", "Grave Seasons Romance | 12 Potential Partners"],
+  ["suspects/index.html", "Grave Seasons Suspects | Killer Campaign Guide"],
+  ["victim-protection/index.html", "Grave Seasons Victim Protection Guide"],
+]);
+
+for (const [relativeFile, title] of metadataTitleOverrides) {
+  const file = path.join(root, relativeFile);
+  if (!fs.existsSync(file)) continue;
+  const html = fs.readFileSync(file, "utf8").replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
+  fs.writeFileSync(file, html);
+}
 
 for (const obsolete of [
   "gameplay/crafting", "gameplay/investigation", "gameplay/romance",

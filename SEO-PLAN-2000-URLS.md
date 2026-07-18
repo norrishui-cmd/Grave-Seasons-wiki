@@ -1,6 +1,6 @@
 # Grave Seasons Wiki: 2,000-URL SEO Plan
 
-Last updated: July 17, 2026
+Last updated: July 18, 2026
 
 ## Goal and publishing rule
 
@@ -79,3 +79,12 @@ Current official launch window: Fall 2026. The former August 14, 2026 date is ou
 - Added verified pre-launch pages for delay, demo, PC, PS5, Xbox Series X|S, Nintendo Switch, Game Pass, languages, multiplayer, PC requirements, Steam Deck, story length, seven confirmed areas and ten confirmed gameplay systems.
 - Added location and gameplay hubs, updated navigation/discovery, refreshed sitemap and redirects, and added an automated technical/semantic SEO audit.
 - Excluded unknown character, gift, crop, quest and item leaves from the sitemap until they have concrete answers.
+
+## Second-round implementation in this package
+
+- Expanded the site from 55 to 92 canonical pages and from 49 to 92 sitemap URLs; all 92 current pages are indexable and pass the automated audit.
+- Added 18 confirmed resident profiles with role, location and relationship context, while withholding unverified schedules, gift preferences and quest rewards.
+- Added 14 Ashenridge interior and business pages with concrete map purpose, resident connections and verification boundaries.
+- Added five investigation/mechanics guides covering the journal and clues, killer campaigns, character deaths, saving residents and the one-year calendar.
+- Reworked the achievements, calendar, endings, gifts, quests and suspects hubs into answer-first pages and promoted them from `noindex` after they passed the semantic quality gate.
+- Strengthened title and description length checks, JSON-LD validation, internal-link checks and exact indexable-canonical-to-sitemap parity checks.
