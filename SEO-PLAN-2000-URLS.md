@@ -88,3 +88,12 @@ Current official launch window: Fall 2026. The former August 14, 2026 date is ou
 - Added five investigation/mechanics guides covering the journal and clues, killer campaigns, character deaths, saving residents and the one-year calendar.
 - Reworked the achievements, calendar, endings, gifts, quests and suspects hubs into answer-first pages and promoted them from `noindex` after they passed the semantic quality gate.
 - Strengthened title and description length checks, JSON-LD validation, internal-link checks and exact indexable-canonical-to-sitemap parity checks.
+
+## Third-round implementation in this package
+
+- Expanded the site from 92 to 117 canonical, indexable sitemap URLs; the full build remains at zero audit errors and zero warnings.
+- Added a 21-page player-question cluster plus a browsable answer hub covering high-intent searches around romance, killer selection, autosaved choices, break-ins, residents, locations, items, fishing, mining, seasons, farm upgrades, resident deaths and replay carry-over.
+- Added verified entity pages for the customizable player character Dara, blacksmith Jade and carpenter Xia, and connected them to the character, farm-upgrade and customization clusters.
+- Updated the character and FAQ hubs with crawlable contextual links to the new pages instead of relying only on sitemap discovery.
+- Kept gift preferences, exact schedules, recipes, upgrade costs, mine tables and culprit identities outside the indexable expansion because current sources do not provide complete answers.
+- Preserved the answer-first quality rule: every new question URL states a concrete conclusion above the fold, distinguishes official facts from unknown launch details and links to the relevant topic hub.
