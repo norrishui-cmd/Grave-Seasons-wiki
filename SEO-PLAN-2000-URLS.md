@@ -136,3 +136,10 @@ Current official launch window: Fall 2026. The former August 14, 2026 date is ou
 - Updated `/demo/` with the official cancellation of the planned June 15, 2026 public Steam demo and the developer's current capacity-dependent position on any future demo.
 - Added exact official customization counts: 35 wearables, 25 skin tones, 18 hairstyles, 33 hair-color choices, and 14 clothing color options.
 - Linked the new pages from the Gameplay and Items hubs without creating unnamed item, recipe, or character placeholders.
+# Round 9: Japanese and Latin American Spanish expansion
+
+- Expanded Japanese coverage from 15 to 30 canonical pages and Latin American Spanish coverage from 15 to 30 pages.
+- Localized the latest Demo, item, crafting, break-in, victim-protection, customization, secret-area, economy, trust, timer, and 24-hour schedule content.
+- Added reciprocal `en` / `ja` / `es-419` / `x-default` hreflang sets for all translated routes.
+- Added a responsive navigation language dropdown to every canonical HTML page, with current-language state and same-route targets when a translation exists.
+- Added localized discovery modules to both language homepages, Gameplay hubs, and Items hubs.
