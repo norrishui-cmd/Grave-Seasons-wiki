@@ -122,3 +122,11 @@ Current official launch window: Fall 2026. The former August 14, 2026 date is ou
 - Added a five-card news module to every corresponding tab hub with contextual links to the independent stories and central news collection.
 - Used `NewsArticle` structured data, publication dates, direct answers, primary references, category backlinks and explicit verification boundaries on every article.
 - Kept stories distinct by search intent and player consequence instead of republishing the same release summary under seven categories.
+
+## Fifty-question FAQ expansion
+
+- Added 50 source-backed FAQ detail URLs under `/faq/{category}/{slug}/`, grouped into Guides, Release, Gameplay, Characters, Locations, Items and Technical topics.
+- Expanded the main `/faq/` page into a visible 50-answer directory while preserving its canonical URL and existing navigation position.
+- Added relevant FAQ access modules to all seven main Tab hubs, with direct static links to every FAQ detail page and category anchors on the FAQ hub.
+- Gave every detail page a direct answer, unique metadata, FAQPage structured data, source boundary, category backlink, AdSense configuration and sitemap entry.
+- Avoided anonymous entities, invented game values and answer-free placeholders; details that remain unknown are stated only after a concrete confirmed answer.

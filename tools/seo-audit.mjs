@@ -47,6 +47,7 @@ for (const file of htmlFiles) {
   if (!html.includes('name="robots"')) errors.push(`${rel}: missing robots meta`);
   if (!html.includes("application/ld+json")) errors.push(`${rel}: missing JSON-LD`);
   if (rel.startsWith(`news${path.sep}`) && rel !== `news${path.sep}index.html` && !html.includes('"@type":"NewsArticle"')) errors.push(`${rel}: missing NewsArticle schema`);
+  if (rel.startsWith(`faq${path.sep}`) && rel.split(path.sep).length === 4 && !html.includes('"@type":"FAQPage"')) errors.push(`${rel}: missing FAQPage schema`);
   const adsenseMetaCount = (html.match(/name="google-adsense-account" content="ca-pub-9505220977121599"/g) || []).length;
   const adsenseScriptCount = (html.match(/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-9505220977121599/g) || []).length;
   if (adsenseMetaCount !== 1) errors.push(`${rel}: expected one AdSense account meta, found ${adsenseMetaCount}`);
