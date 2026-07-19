@@ -130,3 +130,9 @@ Current official launch window: Fall 2026. The former August 14, 2026 date is ou
 - Added relevant FAQ access modules to all seven main Tab hubs, with direct static links to every FAQ detail page and category anchors on the FAQ hub.
 - Gave every detail page a direct answer, unique metadata, FAQPage structured data, source boundary, category backlink, AdSense configuration and sitemap entry.
 - Avoided anonymous entities, invented game values and answer-free placeholders; details that remain unknown are stated only after a concrete confirmed answer.
+# Round 8: latest verified game data
+
+- Added or substantially upgraded nine entity and system pages covering the crowbar, kitchen crafting, shed crafting, character customization, secret areas, the local economy, resident trust, next-victim timing, and the 24-hour schedule.
+- Updated `/demo/` with the official cancellation of the planned June 15, 2026 public Steam demo and the developer's current capacity-dependent position on any future demo.
+- Added exact official customization counts: 35 wearables, 25 skin tones, 18 hairstyles, 33 hair-color choices, and 14 clothing color options.
+- Linked the new pages from the Gameplay and Items hubs without creating unnamed item, recipe, or character placeholders.
