@@ -114,3 +114,11 @@ Current official launch window: Fall 2026. The former August 14, 2026 date is ou
 - Published the required Google seller record at the root `/ads.txt` path.
 - Updated both page generators so future English and localized rebuilds preserve the AdSense configuration.
 - Extended the audit to reject missing or duplicated AdSense scripts, missing account meta tags and an incorrect `ads.txt` publisher record.
+
+## Seven-tab news expansion
+
+- Added five independent news URLs to each main English tab: Guides, Release, Gameplay, Characters, Locations, Items and FAQ.
+- Published 35 source-backed news articles plus a `/news/` collection hub, expanding the sitemap from 147 to 183 indexable URLs.
+- Added a five-card news module to every corresponding tab hub with contextual links to the independent stories and central news collection.
+- Used `NewsArticle` structured data, publication dates, direct answers, primary references, category backlinks and explicit verification boundaries on every article.
+- Kept stories distinct by search intent and player consequence instead of republishing the same release summary under seven categories.
