@@ -2,21 +2,79 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
-    { "source": "/release-date.html", "destination": "/release-date/", "permanent": true },
-    { "source": "/characters.html", "destination": "/characters/", "permanent": true },
-    { "source": "/crops.html", "destination": "/crops/", "permanent": true },
-    { "source": "/romance.html", "destination": "/romance/", "permanent": true },
-    { "source": "/suspects.html", "destination": "/suspects/", "permanent": true },
-    { "source": "/platforms.html", "destination": "/platforms/", "permanent": true },
-    { "source": "/faq.html", "destination": "/faq/", "permanent": true },
-    { "source": "/about.html", "destination": "/about/", "permanent": true }
+    {
+      "source": "/release-date.html",
+      "destination": "/release-date/",
+      "permanent": true
+    },
+    {
+      "source": "/characters.html",
+      "destination": "/characters/",
+      "permanent": true
+    },
+    {
+      "source": "/crops.html",
+      "destination": "/crops/",
+      "permanent": true
+    },
+    {
+      "source": "/romance.html",
+      "destination": "/romance/",
+      "permanent": true
+    },
+    {
+      "source": "/suspects.html",
+      "destination": "/suspects/",
+      "permanent": true
+    },
+    {
+      "source": "/platforms.html",
+      "destination": "/platforms/",
+      "permanent": true
+    },
+    {
+      "source": "/faq.html",
+      "destination": "/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/news/faq/not-a-multiplayer-game/",
+      "destination": "/multiplayer/",
+      "permanent": true
+    },
+    {
+      "source": "/news/gameplay/single-player-with-steam-achievements/",
+      "destination": "/multiplayer/",
+      "permanent": true
+    },
+    {
+      "source": "/faq/technical/is-the-game-single-player/",
+      "destination": "/multiplayer/",
+      "permanent": true
+    },
+    {
+      "source": "/romance-options/",
+      "destination": "/romance/",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     }
   ]
